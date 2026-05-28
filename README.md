@@ -15,9 +15,9 @@ Orbit lets you create projects, organize tasks within them, and track your progr
 
 ## Screenshots
 
-<!-- Add screenshots of your app running in the visionOS simulator here -->
-<!-- ![Project List](screenshots/list.png) -->
-<!-- ![Project Detail](screenshots/detail.png) -->
+ Add screenshots of your app running in the visionOS simulator here 
+ ![Project List](screenshots/list.png) 
+ ![Project Detail](screenshots/detail.png) 
 
 ## Requirements
 
