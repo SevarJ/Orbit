@@ -6,10 +6,22 @@
 //
 
 import Foundation
+import SwiftData
 
-struct TaskModel: Identifiable, Equatable {
-    let id: UUID = UUID()
+@Model class TaskModel {
     var title: String
     var isDone: Bool
-    var createdAt: Date = Date()
+    var createdAt: Date
+    
+    init(
+        title: String,
+        isDone: Bool,
+        createdAt: Date = Date()
+    ) {
+        self.title = title
+        self.isDone = isDone
+        self.createdAt = createdAt
+    }
+    
+    var project: ProjectModel?
 }

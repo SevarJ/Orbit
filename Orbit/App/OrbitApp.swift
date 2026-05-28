@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct OrbitApp: App {
-    @State private var projectStore = ProjectStore()
 
     var body: some Scene {
         WindowGroup {
                 ProjectListView()
-                .environment(projectStore)
         }
+        .modelContainer(for: ProjectModel.self)
     }
 }

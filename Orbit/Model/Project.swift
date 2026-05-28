@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct ProjectModel: Identifiable, Hashable {
-    func hash(into hasher: inout Hasher) { hasher.combine(id) }
-
-    let id: UUID = UUID()
+@Model class ProjectModel {
     var name: String
     var icon: String
     var colorKey: String
+    @Relationship(deleteRule: .cascade, inverse: \TaskModel.project)
     var tasks: [TaskModel]
 
     init(

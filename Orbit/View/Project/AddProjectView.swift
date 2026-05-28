@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddProjectView: View {
-    @Environment(ProjectStore.self) var store
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
 
     /// Pass an existing project to enter edit mode; leave nil for creation.
@@ -90,13 +91,12 @@ struct AddProjectView: View {
 
             // MARK: - Save
             Button {
-                if var project = editingProject {
+                if let project = editingProject {
                     project.name = projectName
                     project.icon = selectedIcon
                     project.colorKey = selectedColorKey
-                    store.update(project)
                 } else {
-                    store.add(
+                    context.insert(
                         ProjectModel(
                             name: projectName,
                             icon: selectedIcon,
@@ -105,6 +105,7 @@ struct AddProjectView: View {
                         )
                     )
                 }
+                try? context.save()
                 dismiss()
             } label: {
                 Text(isEditing ? "Update" : "Save")

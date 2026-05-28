@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectListView: View {
-    @Environment(ProjectStore.self) var store
+    @Query var projects: [ProjectModel]
+    @Environment(\.modelContext) private var context
 
     @State private var showAddProject = false
     @State private var projectToEdit: ProjectModel?
@@ -16,7 +18,7 @@ struct ProjectListView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if store.projects.isEmpty {
+                if projects.isEmpty {
                     ContentUnavailableView(
                         "No Projects",
                         systemImage: "folder",
@@ -24,9 +26,9 @@ struct ProjectListView: View {
                     )
                 } else {
                     List {
-                        ForEach(store.projects) { project in
+                        ForEach(projects) { project in
                             NavigationLink {
-                                ProjectDetailView(projectID: project.id)
+                                ProjectDetailView(project: project)
                             } label: {
                                 ProjectRowView(project: project)
                             }
@@ -37,7 +39,7 @@ struct ProjectListView: View {
                                     Label("Edit", systemImage: "pencil")
                                 }
                                 Button(role: .destructive) {
-                                    store.delete(project)
+                                    context.delete(project)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -45,7 +47,7 @@ struct ProjectListView: View {
                         }
                         .onDelete { indexSet in
                             for index in indexSet {
-                                store.delete(store.projects[index])
+                                context.delete(projects[index])
                             }
                         }
                     }
