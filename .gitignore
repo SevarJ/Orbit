@@ -1,0 +1,38 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+xcuserdata/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Swift Package Manager
+.build/
+Packages/RealityKitContent/.build/
+
+# Realm Composer Pro
+*.rcproject/user/
+
+# App data
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Code coverage
+*.gcno
+*.gcda
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Protobuf
+*.pb.swift
+
+# Cowork / Claude sessions
+FEATURES.md
