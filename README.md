@@ -15,7 +15,6 @@ Orbit lets you create projects, organize tasks within them, and track your progr
 
 ## Screenshots
 
- Add screenshots of your app running in the visionOS simulator here 
  ![Project List](screenshots/list.png) 
  ![Project Detail](screenshots/detail.png) 
 
@@ -68,7 +67,3 @@ Orbit/
 - **RealityKit** — 3D content rendering for visionOS
 - **SF Symbols** — native icon system
 - **MVVM** — clean separation of concerns
-
-## License
-
-This project is available under the MIT License. See [LICENSE](LICENSE) for details.
